@@ -1,0 +1,228 @@
+Current configuration : 5391 bytes
+!
+! Last configuration change at 10:37:07 UTC Fri Feb 7 2025
+!
+version 15.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname SW1
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 9 $9$636rAAzpnZjuvp$7du6UPLnNTGbs9E9ttSvYbxyoEWuihCV.6oBlVvN1b.
+!
+username admin secret 9 $9$zw5w.VabhPCKr2$gWCuKxL32wv29G8tXHRFNL35U5Ls3G9rykD1QG9tHXg
+no aaa new-model
+switch 1 provision c1000-24t-4g-l
+system mtu routing 1500
+!
+!
+ip domain-name kfc.hu
+!
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-752924416
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-752924416
+ revocation-check none
+ rsakeypair TP-self-signed-752924416
+!
+!
+crypto pki certificate chain TP-self-signed-752924416
+ certificate self-signed 01
+  30820229 30820192 A0030201 02020101 300D0609 2A864886 F70D0101 05050030
+  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 37353239 32343431 36301E17 0D323530 31333130 39353833
+  395A170D 33303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F
+  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3735 32393234
+  34313630 819F300D 06092A86 4886F70D 01010105 0003818D 00308189 02818100
+  E46B147C BDBA85BF E3E0A402 4712F23F CE83CB80 A0D4C9C5 5B4528A2 264B0C8A
+  947CBB10 CDAF9678 61FD24B8 7D89A868 2DCD0C9A 4279B00B D0AA9AEE ACDFD3A2
+  2DA2E594 B94D6916 761E3A9C 771BB42E 1F111198 1487646F B76A0EA5 EFBD5191
+  18144F51 64295C01 FCD03652 46D047CA BA612A80 DDB2D7D7 DDA20A44 A826F7F1
+  02030100 01A35330 51300F06 03551D13 0101FF04 05300301 01FF301F 0603551D
+  23041830 16801422 FC1A88EF AB8BC014 43C19FF8 62F2C412 513EAF30 1D060355
+  1D0E0416 041422FC 1A88EFAB 8BC01443 C19FF862 F2C41251 3EAF300D 06092A86
+  4886F70D 01010505 00038181 00711B20 80A8895E DBDE395A 712217AD 8B85410D
+  0015F18F D68914DB 34E89F9C C84DDDCB 8B214C52 FF1465C4 B834C292 A421B3D6
+  8378403A 3AF17647 A0D7154D 5EAC674C 6B9D47FA 5EDD548F 0469B124 D45FE63E
+  F537EAC1 9F754E9F 9F857A15 3B9C3DF3 6A22DA8B 776156EF 815B5B18 E18E6849
+  5A50FC31 AFB3BB8A F79CA2F9 68
+        quit
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+!
+!
+!
+!
+!
+interface Port-channel1
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/1
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface GigabitEthernet1/0/2
+ switchport mode trunk
+ channel-group 1 mode active
+!
+interface GigabitEthernet1/0/3
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/4
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/5
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/6
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/7
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/8
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/9
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/10
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/11
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/12
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/13
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/14
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/15
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/16
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/17
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/18
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/19
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/20
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/21
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/22
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/23
+ switchport access vlan 35
+ switchport mode access
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0/24
+ switchport access vlan 45
+ switchport mode access
+ switchport port-security mac-address sticky
+ switchport port-security
+ spanning-tree portfast edge
+!
+interface GigabitEthernet1/0/25
+!
+interface GigabitEthernet1/0/26
+!
+interface GigabitEthernet1/0/27
+!
+interface GigabitEthernet1/0/28
+!
+interface Vlan1
+ no ip address
+!
+interface Vlan35
+ ip address 172.18.1.4 255.255.255.192
+!
+interface Vlan45
+ ip address 172.18.1.69 255.255.255.224
+!
+ip http server
+ip http secure-server
+ip ssh version 2
+!
+!
+!
+banner motd ^CWARNING: Unauthorized Access Prohibited! This system is for authorized users only. All activities are monitored and logged. Unauthorized access, use, or modification of this device is strictly prohibited and may be punishable by law.^C
+!
+line con 0
+ password cisco
+ login
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+end
+
